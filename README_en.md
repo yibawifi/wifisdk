@@ -1,70 +1,69 @@
-[中文文档](README.md)
-# Yiba WiFi SDk 说明文档1.1.4
- 1、app项目为WiFi SDK的demo项目
+[English version](README.md)
+# Yiba WiFi SDk Integration Instructions 1.1.4
+ 1、Demo project of app named WiFi SDK
  
-### SDK Demo下载
+### SDK Demo download
 
-  - 在[易跋官网](http://global.18wifibank.com/)或者点击[这里](http://global.18wifibank.com/)下载最新版的sdk demo.
-  - 注意demo是用Android Studio构建，需要用Android Studio打开，用eclipse打开会发生错误。
+  - On [Yiba official website](http://global.18wifibank.com/) or click [here](http://global.18wifibank.com/)to download the newest version of sdk demo.
+  - Note: Since the demo is structured of Android Studio，it needs to be opened with Android Studio. Error will occur when open with eclipse. 
 
-### Android Studio快速集成
+### Android studio package integration steps
  
-#### 1、在你的 app Module 的build.gradle文件中添加
+#### 1、1.In the build.gradle document of your app module, add:
 ```
  dependencies {
      compile 'com.yiba:wifisdk:latest.release'
-     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.0.0
- }
+     //latest.release refers to the newest version number. It may also refer to the exact version number such as 1.0.0}
 ```
- 查看最新明确版本号，点击 [jcenter](http://jcenter.bintray.com/com/yiba/wifisdk/)
+ To check the newst version number, please click  [jcenter](http://jcenter.bintray.com/com/yiba/wifisdk/)
  
- 最新版本的的示例如图所示:
+ Please see below for an example of the newest version:
  ![](http://i2.buimg.com/567571/69c62f08ef69e2a9.png)
  
- 明确版本号的示例如图所示
+  Please see below for an example of the newest version:
  ![](http://i2.buimg.com/567571/0abc4b2047ec2952.png)
  
-#### 2、打开WiFi界面
+#### 2、2.Open the WiFi interface
 ```
  Intent intent = new Intent( MainActivity.this , YIbaWifiActivity.class) ;
  startActivity( intent );
 ```
- 如图所示
+ See below for an example
  ![](http://i2.buimg.com/567571/976f52477c954722.png)
  
  
-#### 3、常用API说明（注意：必须在Android主线程调用以下API，否则会出错）
+#### 3、Common API instructions(Please note: The API below must be used in Android main Thread or mistakes will appear)
 ```
- //获取free wifi 通知的开关状态。true:打开  false:关闭。默认情况下为true
+ //To access free WiFi notification switch status: true: On  false: Off  Default setting:true 
   WiFiSDKManager.getInstance().getFreeWifiToggle( this ) ;
  
- //设置free wifi 通知的开关状态。true：打开   false:关闭。默认情况下为true
- //如果你设置为false,那么你将收不到任何关于free wifi的通知提醒。
+ //To set the free WiFi notification switch status:  true: On   false: Off   Default setting: true
+ //If you set as false, then you will not receive any notifications of free WiFi 
  WiFiSDKManager.getInstance().setFreeWifiToggle( this , true );
  
- //获取open wifi 通知的开关状态。true：打开   false:关闭。默认情况下为true
+ //To access the open WiFi notification switch status: true: On   false:Off  Default setting: true
   WiFiSDKManager.getInstance().getOpenWifiToggle( this ) ;
  
- //设置open wifi 通知的开关状态。true：打开   false:关闭。默认情况下为true
- //如果你设置为false,那么你将收不到任何关于open wifi的通知提醒。
+ //To set the open WiFi notification switch status:  true: On    false: Off  Default setting: true
+ //If you set as false, then you will not receive any notifications of open WiFi.
  WiFiSDKManager.getInstance().setOpenWifiToggle( this , true );
  
- //获取常驻通知栏的显示状态。true：显示   false:关闭。默认情况下为true
+ //To access the display status of “permanent notification bar”   true: Display  false: Off     Default setting: true
  WiFiSDKManager.getInstance().getNotificationToggle( this ) ;
  
- //设置常驻通知栏的显示状态。true：显示   false:关闭。默认情况下为true。
- //如果你设置为false,那么手机通知栏里面关于wifi 的常驻通知将消失。
+ //To set the display status of “permanent notification bar” : true: Display  false: Off    Default setting: true 
+ //If you set as false, then the notification of WiFi in the permanent notification bar will disappear. 
  WiFiSDKManager.getInstance().setNotificationToggle( this , true );
 ```
  
-#### 4、混淆说明
- 1、如果你的项目包名是：com.yiba.sdk , 请必须在混淆文件中添加
+#### 4、Proguard instructions 
+ 1、(1)If the name of your project package is :com.yiba.sdk, please make sure to add :
 ```
  -keep public class com.yiba.sdk.R$*{
   public static final int *;
  }
 ```
- 2、必须添加在混淆文件中添加
+ 2、Please make sure to add these in the proguard document:
 ``` 
  -keep class www.yiba.com.wifisdk.**{*;}
  -keep public class * extends android.app.Activity
