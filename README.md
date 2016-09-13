@@ -1,4 +1,4 @@
-[中文文档](README_en.md)
+[英文文档](README_en.md)
 
 # Yiba WiFi SDk 说明文档1.1.4
  1、app项目为WiFi SDK的demo项目
