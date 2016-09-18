@@ -1,4 +1,4 @@
-[Chinese version](README.md)
+[中文](README.md)
 # Yiba WiFi SDk Integration Instructions 1.1.4
  1、Demo project of app named WiFi SDK
  
