@@ -1,7 +1,9 @@
 [中文](README.md)
 ### Yiba WiFi SDk Integration Instructions 1.1.0
  1、Demo project of app named WiFi SDK
+ 
  2、Note: Since the demo is structured of Android Studio，it needs to be opened with Android Studio. Error will occur when open with eclipse. 
+ 
  3、[Yiba official website](http://global.18wifibank.com/) 
  
 ---
