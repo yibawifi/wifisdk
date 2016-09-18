@@ -1,7 +1,7 @@
 [English](README_en.md)
 
 
-### Yiba WiFi SDk 说明文档1.1
+### Yiba WiFi SDk 说明文档1.1.0
  1、app项目为WiFi SDK的Demo项目
  
  2、注意Demo是用Android Studio构建，需要用Android Studio打开，用eclipse打开会发生错误。
