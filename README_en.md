@@ -57,7 +57,7 @@
 ```
  
 #### 4、Proguard instructions 
- 1、(1)If the name of your project package is :com.yiba.sdk, please make sure to add :
+ 1、If the name of your project package is :com.yiba.sdk, please make sure to add :
 ```
  -keep public class com.yiba.sdk.R$*{
   public static final int *;
