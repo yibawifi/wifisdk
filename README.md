@@ -1,7 +1,7 @@
 [English](README_en.md)
 
 
-### 一、Yiba WiFi SDK 说明文档1.1.0
+### Yiba WiFi SDK 说明文档1.1.0
  1、app项目为WiFi SDK的Demo项目
  
  2、注意Demo是用Android Studio构建，需要用Android Studio打开，用Eclipse打开会发生错误。
@@ -11,7 +11,7 @@
 ---
 
 
-### 二、Android Studio快速集成
+### Android Studio快速集成
  
 #### 1、在你的 app Module 的build.gradle文件中添加
 ```
@@ -62,13 +62,13 @@
 ```
  
 #### 4、混淆说明
-  4.1、如果你的项目包名是：com.yiba.sdk , 请必须在混淆文件中添加
+    4.1、如果你的项目包名是：com.yiba.sdk , 请必须在混淆文件中添加
 ```
  -keep public class com.yiba.sdk.R$*{
   public static final int *;
  }
 ```
-  4.2、必须添加在混淆文件中添加
+    4.2、必须添加在混淆文件中添加
 ``` 
  -keep class www.yiba.com.wifisdk.**{*;}
  -keep public class * extends android.app.Activity
