@@ -9,7 +9,7 @@
 
 ### Android studio package integration steps
  
-#### 1、1.In the build.gradle document of your app module, add:
+#### 1、In the build.gradle document of your app module, add:
 ```
  dependencies {
      compile 'com.yiba:wifisdk:latest.release'
@@ -23,7 +23,7 @@
   Please see below for an example of the newest version:
  ![](http://i2.buimg.com/567571/0abc4b2047ec2952.png)
  
-#### 2、2.Open the WiFi interface
+#### 2、Open the WiFi interface
 ```
  Intent intent = new Intent( MainActivity.this , YIbaWifiActivity.class) ;
  startActivity( intent );
