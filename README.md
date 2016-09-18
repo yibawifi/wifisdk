@@ -1,12 +1,12 @@
 [English](README_en.md)
 
-# Yiba WiFi SDk 说明文档1.1.4
- 1、app项目为WiFi SDK的demo项目
- 
-### SDK Demo下载
 
-  - 在[易跋官网](http://global.18wifibank.com/)或者点击[这里](http://global.18wifibank.com/)下载最新版的sdk demo.
-  - 注意demo是用Android Studio构建，需要用Android Studio打开，用eclipse打开会发生错误。
+## Yiba WiFi SDk 说明文档1.1
+ 1、app项目为WiFi SDK的Demo项目
+ 2、注意Demo是用Android Studio构建，需要用Android Studio打开，用eclipse打开会发生错误。
+ 3、[SDK官方网站](http://global.18wifibank.com/)
+ 
+---
 
 ### Android Studio快速集成
  
