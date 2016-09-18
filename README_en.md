@@ -1,5 +1,5 @@
 [中文](README.md)
-### Yiba WiFi SDK Integration Instructions 1.1.0
+## Yiba WiFi SDK Integration Instructions 1.1.0
  1、Demo project of app named WiFi SDK
  
  2、Note: Since the demo is structured of Android Studio，it needs to be opened with Android Studio. Error will occur when open with Eclipse. 
@@ -8,9 +8,9 @@
  
 ---
 
-### Android studio package integration steps
+## Android studio package integration steps
  
-#### 1、In the build.gradle document of your app module, add:
+### 1、In the build.gradle document of your app module, add:
 ```
  dependencies {
      compile 'com.yiba:wifisdk:latest.release'
@@ -25,7 +25,7 @@
   Please see below for an example of the newest version:
  ![](http://i2.buimg.com/567571/0abc4b2047ec2952.png)
  
-#### 2、Open the WiFi interface
+### 2、Open the WiFi interface
 ```
  Intent intent = new Intent( MainActivity.this , YIbaWifiActivity.class) ;
  startActivity( intent );
@@ -34,7 +34,7 @@
  ![](http://i2.buimg.com/567571/976f52477c954722.png)
  
  
-#### 3、Common API instructions(Please note: The API below must be used in Android main Thread or mistakes will appear)
+### 3、Common API instructions(Please note: The API below must be used in Android main Thread or mistakes will appear)
 ```
  //To access free WiFi notification switch status: true: On  false: Off  Default setting:true 
   WiFiSDKManager.getInstance().getFreeWifiToggle( this ) ;
@@ -58,14 +58,14 @@
  WiFiSDKManager.getInstance().setNotificationToggle( this , true );
 ```
  
-#### 4、Proguard instructions 
-##### 4.1、If the name of your project package is :com.yiba.sdk, please make sure to add :
+### 4、Proguard instructions 
+#### 4.1、If the name of your project package is :com.yiba.sdk, please make sure to add :
 ```
  -keep public class com.yiba.sdk.R$*{
   public static final int *;
  }
 ```
-##### 4.2、Please make sure to add these in the proguard document:
+#### 4.2、Please make sure to add these in the proguard document:
 ``` 
  -keep class www.yiba.com.wifisdk.**{*;}
  -keep public class * extends android.app.Activity
