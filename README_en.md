@@ -59,13 +59,13 @@
 ```
  
 #### 4、Proguard instructions 
-     ##### 4.1、If the name of your project package is :com.yiba.sdk, please make sure to add :
+#####     4.1、If the name of your project package is :com.yiba.sdk, please make sure to add :
 ```
  -keep public class com.yiba.sdk.R$*{
   public static final int *;
  }
 ```
-     ##### 4.2、Please make sure to add these in the proguard document:
+#####     4.2、Please make sure to add these in the proguard document:
 ``` 
  -keep class www.yiba.com.wifisdk.**{*;}
  -keep public class * extends android.app.Activity
