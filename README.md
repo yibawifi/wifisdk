@@ -1,7 +1,7 @@
 [English](README_en.md)
 
 
-### Yiba WiFi SDK 说明文档1.1.0
+## Yiba WiFi SDK 说明文档1.1.0
  1、app项目为WiFi SDK的Demo项目
  
  2、注意Demo是用Android Studio构建，需要用Android Studio打开，用Eclipse打开会发生错误。
@@ -11,9 +11,9 @@
 ---
 
 
-### Android Studio快速集成
+## Android Studio快速集成
  
-#### 1、在你的 app Module 的build.gradle文件中添加
+### 1、在你的 app Module 的build.gradle文件中添加
 ```
  dependencies {
      compile 'com.yiba:wifisdk:latest.release'
@@ -28,7 +28,7 @@
  明确版本号的示例如图所示
  ![](http://i2.buimg.com/567571/0abc4b2047ec2952.png)
  
-#### 2、打开WiFi界面
+### 2、打开WiFi界面
 ```
  Intent intent = new Intent( MainActivity.this , YIbaWifiActivity.class) ;
  startActivity( intent );
@@ -37,7 +37,7 @@
  ![](http://i2.buimg.com/567571/976f52477c954722.png)
  
  
-#### 3、常用API说明（注意：必须在Android主线程调用以下API，否则会出错）
+### 3、常用API说明（注意：必须在Android主线程调用以下API，否则会出错）
 ```
  //获取free wifi 通知的开关状态。true:打开  false:关闭。默认情况下为true
   WiFiSDKManager.getInstance().getFreeWifiToggle( this ) ;
@@ -61,14 +61,14 @@
  WiFiSDKManager.getInstance().setNotificationToggle( this , true );
 ```
  
-#### 4、混淆说明
-    4.1、如果你的项目包名是：com.yiba.sdk , 请必须在混淆文件中添加
+### 4、混淆说明
+#### 4.1、如果你的项目包名是：com.yiba.sdk , 请必须在混淆文件中添加
 ```
  -keep public class com.yiba.sdk.R$*{
   public static final int *;
  }
 ```
-    4.2、必须添加在混淆文件中添加
+#### 4.2、必须添加在混淆文件中添加
 ``` 
  -keep class www.yiba.com.wifisdk.**{*;}
  -keep public class * extends android.app.Activity
