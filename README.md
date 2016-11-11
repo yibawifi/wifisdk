@@ -17,7 +17,7 @@
 ```
  dependencies {
      compile 'com.yiba:wifisdk:latest.release'
-     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.0.0
+     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.0.0
  }
 ```
  查看最新明确版本号，点击 [jcenter](http://jcenter.bintray.com/com/yiba/wifisdk/)
