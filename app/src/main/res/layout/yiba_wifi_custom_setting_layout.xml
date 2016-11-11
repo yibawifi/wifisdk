@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:id="@+id/yiba_custom_layou_setting"
+    android:background="@color/yiba_title_bar_bg"
+    >
+
+    <ImageView
+        android:id="@+id/yiba_wifi_setting_back_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:src="@drawable/yiba_wifi_back"
+        android:layout_centerVertical="true"
+        android:paddingLeft="16dp"
+        />
+    <TextView
+        android:layout_toRightOf="@id/yiba_wifi_setting_back_image"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:padding="@dimen/top_bar_title_margin"
+        android:text="@string/yiba_wifi_default_open"
+        android:textColor="@color/yiba_white"
+        android:textSize="18sp" />
+
+</RelativeLayout>

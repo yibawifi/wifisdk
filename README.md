@@ -39,6 +39,10 @@
  
 ### 3、常用API说明（注意：必须在Android主线程调用以下API，否则会出错）
 ```
+
+  //设置SDK token ；如果没有token , 点击这里获取token
+  WiFiSDKManager.getInstance().setToken( this , "your app token");
+
  //获取free wifi 通知的开关状态。true:打开  false:关闭。默认情况下为true
   WiFiSDKManager.getInstance().getFreeWifiToggle( this ) ;
  

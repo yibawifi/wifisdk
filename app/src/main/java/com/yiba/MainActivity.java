@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import www.yiba.com.wifisdk.activity.YIbaWifiActivity;
+import www.yiba.com.wifisdk.manager.WiFiSDKManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        WiFiSDKManager.getInstance().setToken(this, "FE251B8EA4404ABB9784DC9DF5ACBA60");
 
         findViewById( R.id.openWifi).setOnClickListener(new View.OnClickListener() {
             @Override
