@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        WiFiSDKManager.getInstance().setToken(this, "FE251B8EA4404ABB9784DC9DF5ACBA60");
+
 
         findViewById( R.id.openWifi).setOnClickListener(new View.OnClickListener() {
             @Override
