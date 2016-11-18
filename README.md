@@ -65,8 +65,8 @@
  WiFiSDKManager.getInstance().setNotificationToggle( this , true );
 ```
 
-#### 4、自定义UI
-##### 4.1、 如何自定义Wifi列表界面的标题UI
+### 4、自定义UI
+#### 4.1、 如何自定义Wifi列表界面的标题UI
 在你的项目中新建 yiba_wifi_custom_layout.xml 布局文件
 
 例如：
@@ -79,7 +79,7 @@
 
 >2、你的项目中的id必须有 android:id="@+id/yiba_custom_layou_fram" ， 不能删除、不能修改。这个id 作用是控制返回按钮的点击事件，销毁当前Activity。
 
-##### 4.2、 如何自定义设置界面title
+#### 4.2、 如何自定义设置界面title
 
 在你的项目中新建 yiba_wifi_custom_setting_layout.xml 布局文件。
 

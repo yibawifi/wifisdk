@@ -62,13 +62,13 @@ WiFiSDKManager.getInstance().setToken( this , "your app token");
  WiFiSDKManager.getInstance().setNotificationToggle( this , true );
 ```
 
- #### 4、Custom UI
- ##### 4.1、 How to customize the title UI in WiFi list interface
+### 4、Custom UI
+#### 4.1、 How to customize the title UI in WiFi list interface
  In your project create Layout XML File: yiba_wifi_custom_layout.xml 
  
  For example:
  
- ![](http://p1.bpimg.com/567571/b403f52d99a8bef7.png)
+![](http://p1.bpimg.com/567571/b403f52d99a8bef7.png)
  
  Please note:
  
@@ -76,13 +76,13 @@ WiFiSDKManager.getInstance().setToken( this , "your app token");
  
  >2. Your project ID must contain android:id="@+id/yiba_custom_layou_fram". This cannot be deleted or changed. The function of the ID is to control the click event of back button and finish current activity 
  
- ##### 4.2、 How to customize the title of setting interface
+#### 4.2、 How to customize the title of setting interface
  
  In your project create a Layout XML File: yiba_wifi_custom_setting_layout.xml
  
  For example:
  
- ![](http://p1.bpimg.com/567571/c93e46395ce7b9fe.png)
+![](http://p1.bpimg.com/567571/c93e46395ce7b9fe.png)
  
  Please note:
  
