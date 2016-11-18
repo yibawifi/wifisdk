@@ -1,5 +1,5 @@
 [中文](README.md)
-## Yiba WiFi SDK Integration Instructions 1.1.0
+## Yiba WiFi SDK Integration Instructions 2.0.0
  1、Demo project of app named WiFi SDK
  
  2、Note: Since the demo is structured of Android Studio，it needs to be opened with Android Studio. Error will occur when open with Eclipse. 
@@ -14,7 +14,7 @@
 ```
  dependencies {
      compile 'com.yiba:wifisdk:latest.release'
-     //latest.release refers to the newest version number. It may also refer to the exact version number such as 1.0.0
+     //latest.release refers to the newest version number. It may also refer to the exact version number such as 2.0.0
      }
 ```
  To check the newst version number, please click  [jcenter](http://jcenter.bintray.com/com/yiba/wifisdk/)
@@ -36,6 +36,10 @@
  
 ### 3、Common API instructions(Please note: The API below must be used in Android main Thread or mistakes will appear)
 ```
+//Set token SDK. If there is no token, please go to the official website (http://www.pegasus-mobile.com/) to get.
+//If the token is not set, you will not be able to get free WiFi; SDK's partial functionality will not be used.
+WiFiSDKManager.getInstance().setToken( this , "your app token");
+
  //To access free WiFi notification switch status: true: On  false: Off  Default setting:true 
   WiFiSDKManager.getInstance().getFreeWifiToggle( this ) ;
  
@@ -57,15 +61,43 @@
  //If you set as false, then the notification of WiFi in the permanent notification bar will disappear. 
  WiFiSDKManager.getInstance().setNotificationToggle( this , true );
 ```
+
+ #### 4、Custom UI
+ ##### 4.1、 How to customize the title UI in WiFi list interface
+ In your project create Layout XML File: yiba_wifi_custom_layout.xml 
  
-### 4、Proguard instructions 
-#### 4.1、If the name of your project package is :com.yiba.sdk, please make sure to add :
+ For example:
+ 
+ ![](http://p1.bpimg.com/567571/b403f52d99a8bef7.png)
+ 
+ Please note:
+ 
+ >1. The name of the Layout XML File must be: yiba_wifi_custom_layout.xml and cannot be changed.
+ 
+ >2. Your project ID must contain android:id="@+id/yiba_custom_layou_fram". This cannot be deleted or changed. The function of the ID is to control the click event of back button and finish current activity 
+ 
+ ##### 4.2、 How to customize the title of setting interface
+ 
+ In your project create a Layout XML File: yiba_wifi_custom_setting_layout.xml
+ 
+ For example:
+ 
+ ![](http://p1.bpimg.com/567571/c93e46395ce7b9fe.png)
+ 
+ Please note:
+ 
+ >1. The name of the Layout XML File must be yiba_wifi_custom_setting_layout.xml and cannot be changed 
+ 
+ >2. Your project ID must contain android:id="@+id/yiba_custom_layou_setting". This cannot be deleted or changed. The function of the ID is to control the click event of back button and finish current activity.
+ 
+### 5、Proguard instructions 
+#### 5.1、If the name of your project package is :com.yiba.sdk, please make sure to add :
 ```
  -keep public class com.yiba.sdk.R$*{
   public static final int *;
  }
 ```
-#### 4.2、Please make sure to add these in the proguard document:
+#### 5.2、Please make sure to add these in the proguard document:
 ``` 
  -keep class www.yiba.com.wifisdk.**{*;}
  -keep public class * extends android.app.Activity
