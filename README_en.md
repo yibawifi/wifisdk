@@ -23,8 +23,6 @@
  Please see below for an example of the newest version:
  ![](http://i2.buimg.com/567571/69c62f08ef69e2a9.png)
  
-  Please see below for an example of the newest version:
- ![](http://i2.buimg.com/567571/0abc4b2047ec2952.png)
  
 ### 2、Open the WiFi interface
 ```

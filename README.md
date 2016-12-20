@@ -25,9 +25,7 @@
  最新版本的的示例如图所示:
  ![](http://i2.buimg.com/567571/69c62f08ef69e2a9.png)
  
- 明确版本号的示例如图所示
- ![](http://i2.buimg.com/567571/0abc4b2047ec2952.png)
- 
+
 ### 2、打开WiFi界面
 ```
  Intent intent = new Intent( MainActivity.this , YIbaWifiActivity.class) ;
