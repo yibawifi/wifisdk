@@ -1,5 +1,5 @@
 [中文](README.md)
-## Yiba WiFi SDK Integration Instructions 2.0.0
+## Yiba WiFi SDK Integration Instructions 2.1.1
  1、Demo project of app named WiFi SDK
  
  2、Note: Since the demo is structured of Android Studio，it needs to be opened with Android Studio. Error will occur when open with Eclipse. 
@@ -15,7 +15,7 @@
  dependencies {
      compile 'com.yiba:wifisdk:latest.release'
      //latest.release refers to the newest version number. 
-     //It may also refer to the exact version number such as 2.0.0
+     //It may also refer to the exact version number such as 2.1.1
      }
 ```
  To check the newst version number, please click  [jcenter](http://jcenter.bintray.com/com/yiba/wifisdk/)
@@ -38,15 +38,15 @@
 ### 3、Common API instructions(Please note: The API below must be used in Android main Thread or mistakes will appear)
 ```
 //Set token SDK. If there is no token, please go to the official website (http://www.pegasus-mobile.com/) to get.
-//If the token is not set, you will not be able to get free WiFi; SDK's partial functionality will not be used.
+//If the token is not set, you will not be able to get shared WiFi; SDK's partial functionality will not be used.
 WiFiSDKManager.getInstance().setToken( this , "your app token");
 
- //To access free WiFi notification switch status: true: On  false: Off  Default setting:true 
-  WiFiSDKManager.getInstance().getFreeWifiToggle( this ) ;
+ //To access shared WiFi notification switch status: true: On  false: Off  Default setting:true 
+  WiFiSDKManager.getInstance().getSharedWifiToggle( this ) ;
  
- //To set the free WiFi notification switch status:  true: On   false: Off   Default setting: true
- //If you set as false, then you will not receive any notifications of free WiFi 
- WiFiSDKManager.getInstance().setFreeWifiToggle( this , true );
+ //To set the shared WiFi notification switch status:  true: On   false: Off   Default setting: true
+ //If you set as false, then you will not receive any notifications of shared WiFi 
+ WiFiSDKManager.getInstance().setSharedWifiToggle( this , true );
  
  //To access the open WiFi notification switch status: true: On   false:Off  Default setting: true
   WiFiSDKManager.getInstance().getOpenWifiToggle( this ) ;
@@ -61,6 +61,10 @@ WiFiSDKManager.getInstance().setToken( this , "your app token");
  //To set the display status of “permanent notification bar” : true: Display  false: Off    Default setting: true 
  //If you set as false, then the notification of WiFi in the permanent notification bar will disappear. 
  WiFiSDKManager.getInstance().setNotificationToggle( this , true );
+ 
+ //finish YIbaWifiActivity
+ WiFiSDKManager.getInstance().setYibaActivityFinish( context );
+ 
 ```
 
 ### 4、Custom UI
@@ -90,6 +94,43 @@ WiFiSDKManager.getInstance().setToken( this , "your app token");
  >1. The name of the Layout XML File must be yiba_wifi_custom_setting_layout.xml and cannot be changed 
  
  >2. Your project ID must contain android:id="@+id/yiba_custom_layou_setting". This cannot be deleted or changed. The function of the ID is to control the click event of back button and finish current activity.
+ 
+#### 4.3、 How to receive the click event for the returned icon
+
+>1、Add in your app module's AndroidManifest.xml
+
+```
+       <!--  Customize the broadcast receiver -->
+
+        <receiver
+            android:name=".YibaReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter >
+                <action android:name="yiba_activity_back_onclick"/>
+            </intent-filter>
+
+        </receiver>
+
+```
+
+> 2、Create a new YibaReceiver class
+
+```
+public class YibaReceiver extends BroadcastReceiver {
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        if ( intent == null ) return;
+        if( TextUtils.equals(intent.getAction(), "yiba_activity_back_onclick")) {
+            //the back image is clicked
+        }
+    }
+}
+
+```
+ 
  
 ### 5、Proguard instructions 
 #### 5.1、If the name of your project package is :com.yiba.sdk, please make sure to add :

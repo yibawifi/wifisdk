@@ -16,6 +16,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--  自定义广播接收器 -->
+
+        <receiver
+            android:name=".YibaReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter >
+                <action android:name="yiba_activity_back_onclick"/>
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>

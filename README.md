@@ -1,7 +1,7 @@
 [English](README_en.md)
 
 
-## Yiba WiFi SDK 说明文档2.0.0
+## Yiba WiFi SDK 说明文档2.1.1
  1、app项目为WiFi SDK的Demo项目
  
  2、注意Demo是用Android Studio构建，需要用Android Studio打开，用Eclipse打开会发生错误。
@@ -43,12 +43,12 @@
 //如果token没有设置，你将无法获取到免费WiFi；SDK的部分功能将无法使用。
  WiFiSDKManager.getInstance().setToken( this , "your app token");
 
- //获取free wifi 通知的开关状态。true:打开  false:关闭。默认情况下为true
-  WiFiSDKManager.getInstance().getFreeWifiToggle( this ) ;
+ //获取shared wifi 通知的开关状态。true:打开  false:关闭。默认情况下为true
+  WiFiSDKManager.getInstance().getSharedWifiToggle( this ) ;
  
- //设置free wifi 通知的开关状态。true：打开   false:关闭。默认情况下为true
- //如果你设置为false,那么你将收不到任何关于free wifi的通知提醒。
- WiFiSDKManager.getInstance().setFreeWifiToggle( this , true );
+ //设置shared wifi 通知的开关状态。true：打开   false:关闭。默认情况下为true
+ //如果你设置为false,那么你将收不到任何关于shared wifi的通知提醒。
+ WiFiSDKManager.getInstance().setSharedWifiToggle( this , true );
  
  //获取open wifi 通知的开关状态。true：打开   false:关闭。默认情况下为true
   WiFiSDKManager.getInstance().getOpenWifiToggle( this ) ;
@@ -63,6 +63,10 @@
  //设置常驻通知栏的显示状态。true：显示   false:关闭。默认情况下为true。
  //如果你设置为false,那么手机通知栏里面关于wifi 的常驻通知将消失。
  WiFiSDKManager.getInstance().setNotificationToggle( this , true );
+ 
+ //销毁 YIbaWifiActivity
+ WiFiSDKManager.getInstance().setYibaActivityFinish( context );
+ 
 ```
 
 ### 4、自定义UI
@@ -92,6 +96,42 @@
 >1、布局文件的名字的必须是：yiba_wifi_custom_setting_layout.xml , 不能修改.
 
 >2、你的项目中的id必须有 android:id="@+id/yiba_custom_layou_setting" ， 不能删除、不能修改。这个id 作用是控制返回按钮的点击事件，销毁当前Activity. 
+ 
+#### 4.3、 如何接收返回图标的点击事件
+
+>1、在你app module 的AndroidManifest.xml 中添加
+
+```
+       <!--  自定义广播接收器 -->
+
+        <receiver
+            android:name=".YibaReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter >
+                <action android:name="yiba_activity_back_onclick"/>
+            </intent-filter>
+
+        </receiver>
+
+```
+
+> 2、新建YibaReceiver类
+
+```
+public class YibaReceiver extends BroadcastReceiver {
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        if ( intent == null ) return;
+        if( TextUtils.equals(intent.getAction(), "yiba_activity_back_onclick")) {
+            //the back image is clicked
+        }
+    }
+}
+
+``` 
  
 ### 5、混淆说明
 #### 5.1、如果你的项目包名是：com.yiba.sdk , 请必须在混淆文件中添加
