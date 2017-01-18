@@ -7,7 +7,12 @@
  2、注意Demo是用Android Studio构建，需要用Android Studio打开，用Eclipse打开会发生错误。
  
  3、[SDK官方网站](http://global.18wifibank.com/)
- 
+
+ 4、SDK的接入技术方面的问题，请联系：`support@pegasus-mobile.com`
+
+ 5、商务合作需求，请联系：`sdk-bd@pegasus-mobile.com`
+
+
 ---
 
 
@@ -156,3 +161,4 @@ public class YibaReceiver extends BroadcastReceiver {
      public void set*(...);
  }
 ``` 
+
