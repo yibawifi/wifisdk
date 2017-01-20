@@ -1,7 +1,7 @@
 [English](README_en.md)
 
 
-## Yiba WiFi SDK 说明文档2.1.1
+## Yiba WiFi SDK 说明文档2.1.2
  1、app项目为WiFi SDK的Demo项目
  
  2、注意Demo是用Android Studio构建，需要用Android Studio打开，用Eclipse打开会发生错误。
@@ -17,7 +17,7 @@
 ```
  dependencies {
      compile 'com.yiba:wifisdk:latest.release'
-     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.1.1
+     //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.1.2
  }
 ```
  查看最新明确版本号，点击 [jcenter](http://jcenter.bintray.com/com/yiba/wifisdk/)
