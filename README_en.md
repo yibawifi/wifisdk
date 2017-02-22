@@ -15,7 +15,7 @@
  dependencies {
      compile 'com.yiba:wifisdk:latest.release'
      //latest.release refers to the newest version number. 
-     //It may also refer to the exact version number such as 2.1.1
+     //It may also refer to the exact version number such as 2.1.2
      }
 ```
  To check the newst version number, please click  [jcenter](http://jcenter.bintray.com/com/yiba/wifisdk/)
