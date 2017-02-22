@@ -1,5 +1,5 @@
 [中文](README.md)
-## Yiba WiFi SDK Integration Instructions 2.1.2
+## Yiba WiFi SDK Integration Instructions 2.1.4
  1、Demo project of app named WiFi SDK
  
  2、Note: Since the demo is structured of Android Studio，it needs to be opened with Android Studio. Error will occur when open with Eclipse. 
@@ -15,7 +15,7 @@
  dependencies {
      compile 'com.yiba:wifisdk:latest.release'
      //latest.release refers to the newest version number. 
-     //It may also refer to the exact version number such as 2.1.2
+     //It may also refer to the exact version number such as 2.1.4
      }
 ```
  To check the newst version number, please click  [jcenter](http://jcenter.bintray.com/com/yiba/wifisdk/)
