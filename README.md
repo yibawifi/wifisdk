@@ -137,28 +137,8 @@ public class YibaReceiver extends BroadcastReceiver {
 ``` 
  
 ### 5、混淆说明
-#### 5.1、如果你的项目包名是：com.yiba.sdk , 请必须在混淆文件中添加
 ```
- -keep public class com.yiba.sdk.R$*{
-  public static final int *;
- }
+-keep class android.support.v7.**{*;}
+-keep class android.support.v4.**{*;}
 ```
-#### 5.2、必须添加在混淆文件中添加
-``` 
- -keep class www.yiba.com.wifisdk.**{*;}
- -keep public class * extends android.app.Activity
- -keep public class * extends android.app.Fragment
- -keep public class * extends android.app.Service
- -keep public class * extends android.app.Application
- -keep public class * extends android.app.Service
- -keep public class * extends android.content.BroadcastReceiver
- -keep public class * extends android.app.Fragment
- -keep public class android.support.v4.** {*;}
- -keep public class * extends android.view.View {
-     public <init>(android.content.Context);
-     public <init>(android.content.Context, android.util.AttributeSet);
-     public <init>(android.content.Context, android.util.AttributeSet, int);
-     public void set*(...);
- }
-``` 
 
