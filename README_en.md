@@ -134,7 +134,7 @@ In your project create Layout XML File: yiba_wifi_custom_layout.xml
 
 For example:
 
-![](http://p1.bpimg.com/567571/b403f52d99a8bef7.png)
+![](/app/img/pic1.png)
 
 Please note:
 
@@ -148,7 +148,7 @@ In your project create a Layout XML File: yiba_wifi_custom_setting_layout.xml
 
 For example:
 
-![](http://p1.bpimg.com/567571/c93e46395ce7b9fe.png)
+![](/app/img/pic4.png)
 
 Please note:
 
