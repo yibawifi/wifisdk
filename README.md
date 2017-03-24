@@ -29,7 +29,7 @@ dependencies {
 查看最新明确版本号，点击 [jcenter](http://jcenter.bintray.com/com/yiba/wifisdk/)
 
 最新版本的的示例如图所示:
-![](http://i2.buimg.com/567571/69c62f08ef69e2a9.png)
+![](/app/img/pic2.png)
 
 
 #### 2、打开WiFi界面
