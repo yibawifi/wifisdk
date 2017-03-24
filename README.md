@@ -38,7 +38,7 @@ Intent intent = new Intent( MainActivity.this , YIbaWifiActivity.class) ;
 startActivity( intent );
 ```
 如图所示
-![](http://i2.buimg.com/567571/976f52477c954722.png)
+![](/app/img/pic1.png)
 
 
 #### 3、常用API说明（注意：必须在Android主线程调用以下API，否则会出错）
@@ -129,7 +129,7 @@ count值表示WiFi类型的个数。
 
 例如：
 
-![](http://p1.bpimg.com/567571/b403f52d99a8bef7.png)
+![](/app/img/pic3.png)
 
 注意事项：
 
@@ -143,7 +143,7 @@ count值表示WiFi类型的个数。
 
 例如：
 
-![](http://p1.bpimg.com/567571/c93e46395ce7b9fe.png)
+![](/app/img/pic4.png)
 
 注意事项：
 
