@@ -1,11 +1,11 @@
 [中文](README_cn.md)
-## We Share WiFi SDK Development Instructions 2.1.5
+## We Share WiFi SDK Development Instructions 2.1.8
 
-### Update logs v2.1.5
+### Update logs v2.1.8
 
-- Fixed the GPS bugs and optimize save battery.
-- Add Notification broadcast with found avaliable WiFi, you can use your UI at the notifications.
-- Fixed some other bugs.
+- Optimize SDK init process.
+- Fixed some bugs.
+- Fixed EAP WiFi bugs.
 
 ### SDK Demo
 
@@ -32,8 +32,14 @@ Please see a sample of the newest version as follows:
 ![](http://i2.buimg.com/567571/69c62f08ef69e2a9.png)
 
 
+#### 2、Init SDK on your Application class
+```
+//Add this code in your Application class
+WiFiSDKManager.getInstance().init(getApplicationContext());
+```
 
-#### 2、Open the WiFi interface
+
+#### 3、Open the WiFi interface
 ```
 Intent intent = new Intent( MainActivity.this , YIbaWifiActivity.class) ;
 startActivity( intent );
@@ -42,7 +48,7 @@ See below for an example
 ![](http://i2.buimg.com/567571/976f52477c954722.png)
 
 
-#### 3、Common API instructions(Please note: The API below must be used in Android main Thread or mistakes will appear)
+#### 4、Common API instructions(Please note: The API below must be used in Android main Thread or mistakes will appear)
 ```
 //Set token SDK.  please go to the official website (http://www.pegasus-mobile.com/) to get.
 //If the token is not set, you will not be able to get shared WiFi; SDK's partial functionality will not be used.
@@ -80,9 +86,9 @@ WiFiSDKManager.getInstance().setYibaActivityFinish( context );
 
 ```
 
-#### 4、Custom Notification
+#### 5、Custom Notification
 
-##### 4.1  If you need a custom notification, you need to close the default notification
+##### 5.1  If you need a custom notification, you need to close the default notification
 
 ```
 //Close Share WiFi notification
@@ -91,7 +97,7 @@ WiFiSDKManager.getInstance().setSharedWifiToggle( this , false );
 WiFiSDKManager.getInstance().setOpenWifiToggle( this , false );
 ```
 
-##### 4.2  Custom BroadcastReceive to receive SDK passed over the JSON data
+##### 5.2  Custom BroadcastReceive to receive SDK passed over the JSON data
 ```
 public class NotificationReveicer extends BroadcastReceiver {
     @Override
@@ -109,7 +115,7 @@ public class NotificationReveicer extends BroadcastReceiver {
 }
 ```
 
-##### 4.3  JSON data sample
+##### 5.3  JSON data sample
 ```
 JSON data sample, as：{"type":0,"count":1}
 
@@ -118,7 +124,7 @@ type value of 0, indicating that the Share WiFi type; type value of 1, indicatin
 The count value indicates the number of WiFi types.
 ```
 
-##### 4.4  Registering the Custom BroadcastReceive in AndroidManifest.xml
+##### 5.4  Registering the Custom BroadcastReceive in AndroidManifest.xml
 ```
 <receiver android:name=".NotificationReveicer">
     <intent-filter>
@@ -128,8 +134,8 @@ The count value indicates the number of WiFi types.
 ```
 
 
-#### 5、Custom UI
-##### 5.1、 How to customize the title UI in WiFi list interface
+#### 6、Custom UI
+##### 6.1、 How to customize the title UI in WiFi list interface
 In your project create Layout XML File: yiba_wifi_custom_layout.xml
 
 For example:
@@ -142,7 +148,7 @@ Please note:
 
 >2. Your project ID must contain android:id="@+id/yiba_custom_layou_fram". This cannot be deleted or changed. The function of the ID is to control the click event of back button and finish current activity
 
-##### 5.2、 How to customize the title of setting interface
+##### 6.2、 How to customize the title of setting interface
 
 In your project create a Layout XML File: yiba_wifi_custom_setting_layout.xml
 
@@ -156,7 +162,7 @@ Please note:
 
 >2. Your project ID must contain android:id="@+id/yiba_custom_layou_setting". This cannot be deleted or changed. The function of the ID is to control the click event of back button and finish current activity.
 
-##### 5.3、 How to receive the click event for the returned icon
+##### 6.3、 How to receive the click event for the returned icon
 
 >1、Add in your app module's AndroidManifest.xml
 
@@ -194,9 +200,9 @@ public class YibaReceiver extends BroadcastReceiver {
 
 
 
-#### 6、Code obfuscation instructions
+#### 7、Code obfuscation instructions
 
-##### 6.1、Please make sure to add these in the `proguard-rules.pro` document:
+##### 7.1、Please make sure to add these in the `proguard-rules.pro` document:
 ```
 -keep class android.support.v7.**{*;}
 -keep class android.support.v4.**{*;}

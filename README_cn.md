@@ -1,10 +1,10 @@
 [English](README_en.md)
 
 
-### 更新日志 v2.1.5
-- 修复由于GPS耗电严重问题，GPS更改为使用低能耗模式
-- 增加通知栏自定义功能，客户端提供了自动发现Free Wi-Fi的广播，客户可以自己定义通知栏样式和控制弹出时机
-- 修复相关的Bug以及功能细节优化
+### 更新日志 v2.1.8
+  - 优化添加SDK初始化进程.
+  - 修复一些Bug.
+  - 修复EAP网络Bug.
 
 ### SDK Demo下载
 
@@ -32,7 +32,13 @@ dependencies {
 ![](/app/img/pic2.png)
 
 
-#### 2、打开WiFi界面
+#### 2、在你的Application类中添加SDK初始化
+```
+//添加这段代码到你的Application类的onCreate方法中
+WiFiSDKManager.getInstance().init(getApplicationContext());
+```
+
+#### 3、打开WiFi界面
 ```
 Intent intent = new Intent( MainActivity.this , YIbaWifiActivity.class) ;
 startActivity( intent );
@@ -41,7 +47,7 @@ startActivity( intent );
 ![](/app/img/pic3.png)
 
 
-#### 3、常用API说明（注意：必须在Android主线程调用以下API，否则会出错）
+#### 4、常用API说明（注意：必须在Android主线程调用以下API，否则会出错）
 ```
 
 //设置SDK token 。如果没有token , 请到官网(http://www.pegasus-mobile.com/)获取。
@@ -74,9 +80,9 @@ WiFiSDKManager.getInstance().setYibaActivityFinish( context );
 
 ```
 
-#### 4、自定义通知
+#### 5、自定义通知
 
-##### 4.1 如果你想自定义通知，那么你要先将默认通知关闭：如
+##### 5.1 如果你想自定义通知，那么你要先将默认通知关闭：如
 
 ```
 //关闭Share WiFi通知
@@ -85,7 +91,7 @@ WiFiSDKManager.getInstance().setSharedWifiToggle( this , false );
 WiFiSDKManager.getInstance().setOpenWifiToggle( this , false );
 ```
 
-##### 4.2 通过自定义广播接收sdk传递过来的json数据：如
+##### 5.2 通过自定义广播接收sdk传递过来的json数据：如
 ```
 public class NotificationReveicer extends BroadcastReceiver {
     @Override
@@ -103,7 +109,7 @@ public class NotificationReveicer extends BroadcastReceiver {
 }
 ```
 
-##### 4.3 json数据格式示例：
+##### 5.3 json数据格式示例：
 ```
 json的数据格式，如：{"type":0,"count":1}
 
@@ -112,7 +118,7 @@ type值为0，表示Share WiFi类型；type值为1，表示Open WiFi类型。
 count值表示WiFi类型的个数。
 ```
 
-##### 4.4 在AndroidManifest.xml中对广播进行注册
+##### 5.4 在AndroidManifest.xml中对广播进行注册
 ```
 <receiver android:name=".NotificationReveicer">
     <intent-filter>
@@ -123,8 +129,8 @@ count值表示WiFi类型的个数。
 
 
 
-#### 5、自定义UI
-##### 5.1、 如何自定义Wifi列表界面的标题UI
+#### 6、自定义UI
+##### 6.1、 如何自定义Wifi列表界面的标题UI
 在你的项目中新建 yiba_wifi_custom_layout.xml 布局文件
 
 例如：
@@ -137,7 +143,7 @@ count值表示WiFi类型的个数。
 
 >2、你的项目中的id必须有 android:id="@+id/yiba_custom_layou_fram" ， 不能删除、不能修改。这个id 作用是控制返回按钮的点击事件，销毁当前Activity。
 
-##### 5.2、 如何自定义设置界面title
+##### 6.2、 如何自定义设置界面title
 
 在你的项目中新建 yiba_wifi_custom_setting_layout.xml 布局文件。
 
@@ -152,7 +158,7 @@ count值表示WiFi类型的个数。
 >2、你的项目中的id必须有 android:id="@+id/yiba_custom_layou_setting" ， 不能删除、不能修改。这个id 作用是控制返回按钮的点击事件，销毁当前Activity.
 
 
-##### 5.3、 如何接收返回图标的点击事件
+##### 6.3、 如何接收返回图标的点击事件
 
 >1、在你app module 的AndroidManifest.xml 中添加
 
@@ -189,9 +195,9 @@ public class YibaReceiver extends BroadcastReceiver {
 ```
 
 
-#### 6、混淆说明
+#### 7、混淆说明
 
-##### 6.1、必须添加在混淆文件中添加
+##### 7.1、必须添加在混淆文件中添加
 ```
 -keep class android.support.v7.**{*;}
 -keep class android.support.v4.**{*;}
