@@ -33,14 +33,14 @@ Please see a sample of the newest version as follows:
 
 
 #### 2、Init SDK on your Application class
-```
+```java
 //Add this code in your Application class
 WiFiSDKManager.getInstance().init(getApplicationContext());
 ```
 
 
 #### 3、Open the WiFi interface
-```
+```java
 Intent intent = new Intent( MainActivity.this , YIbaWifiActivity.class) ;
 startActivity( intent );
 ```
@@ -49,7 +49,7 @@ See below for an example
 
 
 #### 4、Common API instructions(Please note: The API below must be used in Android main Thread or mistakes will appear)
-```
+```java
 //Set token SDK.  please go to the official website (http://www.pegasus-mobile.com/) to get.
 //If the token is not set, you will not be able to get shared WiFi; SDK's partial functionality will not be used.
 WiFiSDKManager.getInstance().setToken( this , "your app token");
@@ -90,7 +90,7 @@ WiFiSDKManager.getInstance().setYibaActivityFinish( context );
 
 ##### 5.1  If you need a custom notification, you need to close the default notification
 
-```
+```java
 //Close Share WiFi notification
 WiFiSDKManager.getInstance().setSharedWifiToggle( this , false );
 //Close Open WiFi notification
@@ -98,7 +98,7 @@ WiFiSDKManager.getInstance().setOpenWifiToggle( this , false );
 ```
 
 ##### 5.2  Custom BroadcastReceive to receive SDK passed over the JSON data
-```
+```java
 public class NotificationReveicer extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -125,7 +125,7 @@ The count value indicates the number of WiFi types.
 ```
 
 ##### 5.4  Registering the Custom BroadcastReceive in AndroidManifest.xml
-```
+```xml
 <receiver android:name=".NotificationReveicer">
     <intent-filter>
         <action android:name="com.yiba.action.ACTION_YIBA_WIFI_NOTIFICATION"/>
@@ -166,7 +166,7 @@ Please note:
 
 >1、Add in your app module's AndroidManifest.xml
 
-```
+```xml
        <!--  Customize the broadcast receiver -->
 
         <receiver
@@ -184,7 +184,7 @@ Please note:
 
 > 2、Create a new YibaReceiver class
 
-```
+```java
 public class YibaReceiver extends BroadcastReceiver {
 
     @Override
