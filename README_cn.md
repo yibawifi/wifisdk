@@ -18,7 +18,7 @@
 ### Android Studio快速集成
 
 #### 1、在你的 app Module 的build.gradle文件中添加
-```
+```java
 
 dependencies {
     compile 'com.yiba:wifisdk:latest.release'
@@ -33,13 +33,13 @@ dependencies {
 
 
 #### 2、在你的Application类中添加SDK初始化
-```
+```java
 //添加这段代码到你的Application类的onCreate方法中
 WiFiSDKManager.getInstance().init(getApplicationContext());
 ```
 
 #### 3、打开WiFi界面
-```
+```java
 Intent intent = new Intent( MainActivity.this , YIbaWifiActivity.class) ;
 startActivity( intent );
 ```
@@ -48,7 +48,7 @@ startActivity( intent );
 
 
 #### 4、常用API说明（注意：必须在Android主线程调用以下API，否则会出错）
-```
+```java
 
 //设置SDK token 。如果没有token , 请到官网(http://www.pegasus-mobile.com/)获取。
 //如果token没有设置，你将无法获取到 Shared WiFi；SDK的部分功能将无法使用。
@@ -84,7 +84,7 @@ WiFiSDKManager.getInstance().setYibaActivityFinish( context );
 
 ##### 5.1 如果你想自定义通知，那么你要先将默认通知关闭：如
 
-```
+```java
 //关闭Share WiFi通知
 WiFiSDKManager.getInstance().setSharedWifiToggle( this , false );
 //关闭Open WiFi通知
@@ -92,7 +92,7 @@ WiFiSDKManager.getInstance().setOpenWifiToggle( this , false );
 ```
 
 ##### 5.2 通过自定义广播接收sdk传递过来的json数据：如
-```
+```java
 public class NotificationReveicer extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -119,7 +119,7 @@ count值表示WiFi类型的个数。
 ```
 
 ##### 5.4 在AndroidManifest.xml中对广播进行注册
-```
+```xml
 <receiver android:name=".NotificationReveicer">
     <intent-filter>
         <action android:name="com.yiba.action.ACTION_YIBA_WIFI_NOTIFICATION"/>
@@ -162,7 +162,7 @@ count值表示WiFi类型的个数。
 
 >1、在你app module 的AndroidManifest.xml 中添加
 
-```
+```xml
        <!--  自定义广播接收器 -->
 
         <receiver
@@ -180,7 +180,7 @@ count值表示WiFi类型的个数。
 
 > 2、新建YibaReceiver类
 
-```
+```java
 public class YibaReceiver extends BroadcastReceiver {
 
     @Override
@@ -198,7 +198,7 @@ public class YibaReceiver extends BroadcastReceiver {
 #### 7、混淆说明
 
 ##### 7.1、必须添加在混淆文件中添加
-```
+```java
 -keep class android.support.v7.**{*;}
 -keep class android.support.v4.**{*;}
 

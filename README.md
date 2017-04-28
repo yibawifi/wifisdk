@@ -19,7 +19,7 @@
 ### Android studio package integration steps
 
 #### 1、In the build.gradle document of your app module, add:
-```
+```java
 dependencies {
     compile 'com.yiba:wifisdk:latest.release'
     //The latest.release refers to the newest version number.
@@ -203,7 +203,7 @@ public class YibaReceiver extends BroadcastReceiver {
 #### 7、Code obfuscation instructions
 
 ##### 7.1、Please make sure to add these in the `proguard-rules.pro` document:
-```
+```java
 -keep class android.support.v7.**{*;}
 -keep class android.support.v4.**{*;}
 
